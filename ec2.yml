@@ -13,6 +13,3 @@
       count: 1
       vpc_subnet_id: subnet-6e989227
       assign_public_ip: yes
-      aws_access_key: AKIARHC3KO6SZWNVEYM3
-      aws_secret_key: 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
-        
