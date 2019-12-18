@@ -15,6 +15,5 @@ Phases:
       - yum -y install jq
   build:
     commands:
-      - cd ansible
       - chmod +x s3bucket.py
       - python s3bucket.py
