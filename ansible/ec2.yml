@@ -1,9 +1,0 @@
-hosts: localhost
-- amazon.aws.ec2:
-    key_name: mykey
-    instance_type: t2.micro
-    image: ami-0119aa4d67e59007c
-    count: 1
-    vpc_subnet_id: subnet-3be39f63
-    assign_public_ip: yes
-
