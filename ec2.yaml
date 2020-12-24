@@ -1,9 +1,25 @@
 - hosts: localhost
+  vars:
+    security_group: my_securitygroup
   tasks:
+  - name: my_securitygroup creation
+    amazon.aws.ec2_group:
+      name: my_securitygroup
+      description: sg with rule descriptions
+      vpc_id: vpc-0c986f67
+      #profile: "{{ aws_profile }}"
+      region: ap-south-1
+      rules:
+        - proto: tcp
+          ports:
+          - 80
+          cidr_ip: 0.0.0.0/0
+          rule_desc: allow all on port 80
   - name: install ec2
     amazon.aws.ec2:
       key_name: ec2ansible
       instance_type: t2.micro
+      group: "{{ security_group }}"
       image: ami-08f63db601b82ff5f
       count: 1
       vpc_subnet_id: subnet-c791d38b
